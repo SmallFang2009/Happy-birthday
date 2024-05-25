@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 添加 viewport 元标签 -->
     <link href="https://fonts.googleapis.com/css2?family=Your+Chosen+Font&display=swap" rel="stylesheet">
     <title>生日祝福页面</title>
     <style>
@@ -13,6 +14,34 @@
             overflow: hidden; /* 禁止页面滚动 */
         }
 
+        /* 对小屏幕进行适配 */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            .container {
+                max-width: 90%;
+                padding: 20px; /* 调整容器内边距 */
+            }
+            h1 {
+                font-size: 24px;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                margin: 10px auto;
+            }
+            p {
+                font-size: 14px; /* 调整段落字体大小 */
+            }
+            .time {
+                font-size: 24px; /* 调整倒计时字体大小 */
+                margin: 0 5px;
+                padding: 5px;
+            }
+        }
+
+        /* 其他样式 */
         .page {
             width: 100%;
             height: 100vh;
@@ -27,41 +56,48 @@
             left: 0;
         }
 
+        /* 其他样式 */
         .page.visible {
             opacity: 1;
         }
 
+        /* 其他样式 */
         .page1 {
             background-color: #ffafbd;
             z-index: 1;
         }
 
+        /* 其他样式 */
         .page2 {
-            background-color: #ffa0bd; /* 背景颜色与原始代码一致 */
+            background-color: #ffa0bd;
             z-index: 0;
-            pointer-events: none; /* 禁用交互直到显示 */
+            pointer-events: none;
         }
 
+        /* 其他样式 */
         .message {
             color: #ff69b4;
-            font-size: 36px;
+            font-size: 40px;
         }
 
+        /* 其他样式 */
         .instructions {
             margin-top: 20px;
             color: #333;
         }
 
+        /* 其他样式 */
         .fade-in {
             animation: fadeInAnimation 2s forwards;
         }
 
+        /* 其他样式 */
         @keyframes fadeInAnimation {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
 
-        /* Existing styles */
+        /* 其他样式 */
         #snow-container {
             position: fixed;
             top: 0;
@@ -72,6 +108,7 @@
             z-index: -1;
         }
 
+        /* 其他样式 */
         .snowflake {
             position: absolute;
             width: 10px;
@@ -83,25 +120,29 @@
             animation: snowfall linear infinite;
         }
 
+        /* 其他样式 */
         @keyframes snowfall {
             0% { transform: translateY(-100%); }
             100% { transform: translateY(100vh); }
         }
 
+        /* 其他样式 */
         #slideshow {
             width: 500px;
             height: 300px;
             position: relative;
             overflow: hidden;
             margin: 0 auto;
-            opacity: 0; /* 初始设置为不可见 */
+            opacity: 0;
             transition: opacity 1s ease-in-out;
         }
 
+        /* 其他样式 */
         #slideshow.active {
-            opacity: 1; /* 设置为可见 */
+            opacity: 1;
         }
 
+        /* 其他样式 */
         #slideshow img {
             max-width: 100%;
             max-height: 100%;
@@ -113,10 +154,12 @@
             transition: opacity 1s ease-in-out;
         }
 
+        /* 其他样式 */
         #slideshow img.active {
             opacity: 1;
         }
 
+        /* 其他样式 */
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -128,30 +171,35 @@
             margin-bottom: 20px;
         }
 
+        /* 其他样式 */
         h1 {
             color: #ff69b4;
             font-size: 28px;
             margin-bottom: 10px;
         }
 
+        /* 其他样式 */
         img {
             width: 200px;
             border-radius: 50%;
             margin: 1px 0px;
         }
 
+        /* 其他样式 */
         p {
             color: #333;
             line-height: 1.5;
             margin-bottom: 20px;
         }
 
+        /* 其他样式 */
         #countdown {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
 
+        /* 其他样式 */
         .time {
             font-size: 36px;
             margin: 0 10px;
@@ -161,11 +209,13 @@
             animation-fill-mode: forwards;
         }
 
+        /* 其他样式 */
         #days { background-color: #f5f5f5; }
         #hours { background-color: #e0e0e0; }
         #minutes { background-color: #d5d5d5; }
         #seconds { background-color: #cccccc; }
 
+        /* 其他样式 */
         .time span {
             display: inline-block;
             font-size: 14px;
@@ -173,6 +223,7 @@
             color: #333;
         }
 
+        /* 其他样式 */
         .ribbon {
             position: absolute;
             width: 100%;
@@ -181,6 +232,7 @@
             overflow: hidden;
         }
 
+        /* 其他样式 */
         .ribbon:before,
         .ribbon:after {
             content: "";
@@ -194,16 +246,19 @@
             animation: ribbonAnimation 2s infinite;
         }
 
+        /* 其他样式 */
         .ribbon:before {
             top: -100px;
             left: -50px;
         }
 
+        /* 其他样式 */
         .ribbon:after {
             top: -100px;
             right: -50px;
         }
 
+        /* 其他样式 */
         @keyframes ribbonAnimation {
             0% { transform: translate(0, 0) rotate(0); }
             100% { transform: translate(-800px, -800px) rotate(360deg); }
@@ -234,106 +289,51 @@
             <p>在这特殊的日子里，我希望你能享受每一刻，并与亲朋好友一起度过一个美好的时光。</p>
         </div>
         <div id="countdown">
-        <div class="time" id="days"></div>
-        <div class="time" id="hours"></div>
-        <div class="time" id="minutes"></div>
-        <div class="time" id="seconds"></div>
+            <div class="time" id="days"></div>
+            <div class="time" id="hours"></div>
+            <div class="time" id="minutes"></div>
+            <div class="time" id="seconds"></div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    // 初始化页面的可见性
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.page1').classList.add('visible');
-        document.querySelector('.page2').classList.remove('visible');
-    });
+    <script>
+        // 初始化页面的可见性
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.page1').classList.add('visible');
+            document.querySelector('.page2').classList.remove('visible');
+        });
 
-    // 鼠标滚动事件
-    document.addEventListener('wheel', function(event) {
-        const page1 = document.querySelector('.page1');
-        const page2 = document.querySelector('.page2');
-        page1.classList.remove('visible');
-        page2.classList.add('visible');
-        page2.style.pointerEvents = 'auto'; // 允许交互
-        document.body.style.overflow = 'auto'; // 允许页面滚动
-    });
+        // 鼠标滚动事件
+        document.addEventListener('wheel', function(event) {
+            const page1 = document.querySelector('.page1');
+            const page2 = document.querySelector('.page2');
+            page1.classList.remove('visible');
+            page2.classList.add('visible');
+            page2.style.pointerEvents = 'auto';
+            document.body.style.overflow = 'auto';
+        });
 
-    // 设置生日日期
-    const birthday = new Date("2024-06-26");
+        // 设置生日日期
+        const birthday = new Date("2024-06-26");
 
-    function updateCountdown() {
-        const now = new Date();
-        const difference = birthday - now;
+        function updateCountdown() {
+            const now = new Date();
+            const difference = birthday - now;
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((difference / 1000 / 60) % 60);
-        const seconds = Math.floor((difference / 1000) % 60);
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((difference / 1000 / 60) % 60);
+            const seconds = Math.floor((difference / 1000) % 60);
 
-        document.getElementById("days").textContent = days.toString().padStart(2, "0") + "天";
-        document.getElementById("hours").textContent = hours.toString().padStart(2, "0") + "小时";
-        document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0") + "分钟";
-        document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0") + "秒";
-    }
-
-    setInterval(updateCountdown, 1000);
-
-    // 幻灯片效果
-    $(document).ready(function() {
-        var currentIndex = 0;
-        var slides = $('#slideshow img');
-        var slideCount = slides.length;
-
-        function showSlide(index) {
-            slides.removeClass('active');
-            slides.eq(index).addClass('active');
+            document.getElementById("days").textContent = days.toString().padStart(2, "0") + "天";
+            document.getElementById("hours").textContent = hours.toString().padStart(2, "0") + "小时";
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0") + "分钟";
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0") + "秒";
         }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slideCount;
-            showSlide(currentIndex);
-        }
+        setInterval(updateCountdown, 1000);
 
-        setInterval(nextSlide, 3000);
-        showSlide(currentIndex);
-    });
+        // 幻灯片效果
+        $(document).ready(function
 
-    // 雪花效果
-    function createSnowflake() {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-        snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
-        snowflake.style.opacity = Math.random();
-        snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-
-        const randomColor = getRandomColor();
-        snowflake.style.backgroundColor = randomColor;
-        snowflake.innerHTML = '生日快乐❤️';
-
-        return snowflake;
-    }
-
-    function getRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
-
-    function snowfall() {
-        const snowContainer = document.getElementById('snow-container');
-        const numSnowflakes = 50;
-
-        for (let i = 0; i < numSnowflakes; i++) {
-            const snowflake = createSnowflake();
-            snowContainer.appendChild(snowflake);
-        }
-    }
-
-    snowfall();
-</script>
-</body>
-</html>
+           

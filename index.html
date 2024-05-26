@@ -1,7 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "htt`://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>生日快乐!</title>
     <link type="text/css" rel="stylesheet" href="./css/default.css">
     <script type="text/javascript" src="./css/jquery.min.js"></script>
@@ -14,12 +15,14 @@
     <script type="text/javascript" src="./css/functions.js" charset="utf-8"></script>
     <script type="text/javascript" src="./css/love.js" charset="utf-8"></script>
     <style type="text/css">
-        <!--
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
         .STYLE1 {
             color: #666666
         }
-
-        -->
     </style>
 </head>
 <body>
@@ -29,12 +32,12 @@
             <div id="code">
                 <font color="#FF0000">
                     <span class="say"><h1>Hi there, 生日快乐呀🎉🎉</h1></span><br><br>
-                    <span class="say">这是我第一次给你送生日祝福哦</span><br> <br>
+                    <span class="say">这是我第一次给你送生日祝福哦</span><br><br>
                     <span class="say">中考考完刚几天，应该还算轻松吧</span><br><br>
-                    <span class="say">即使如此，也一定要好好睡觉哦</span><br><br>
+                    <span class="say">即使如此，也一定要好好休息哦</span><br><br>
                     <span class="say">虽然</span><br><br>
                     <span class="say">我们作为初中同学的缘分已经结束了</span><br><br>
-                    <span class="say">但我相信这也是我们缘分的一个新的起点</span><br><br>
+                    <span class="say">但这一定也是一个新的起点</span><br><br>
                     <span class="say">也祝愿我们俩都上金华一中作为上天最好的生日礼物</span><br><br>
                     <span class="say"><span class="space"></span> -- by SmallFang 2024-06-26</span><br>
                 </font>
@@ -47,20 +50,48 @@
             <!-- <div id="clock"></div> -->
         </div>
         <canvas id="canvas" width="1100" height="680"></canvas>
-
     </div>
-
 </div>
 <div>
     <audio autoplay="autoplay" controls loop hidden="true">
         <source src="music/bloomingBegonia.mp3" type="audio/mp3"></source>
         <source src="music/bloomingBegonia.mp3" type="audio/mpeg"></source>
         <source src="music/bloomingBegonia.mp3" type="audio/ogg"></source>
-        <!--    <embed height="50" width="100" src="music/bloomingBegonia.mp3">-->
+        <embed height="50" width="100" src="music/bloomingBegonia.mp3">
     </audio>
 </div>
 
 <script>
+    function requestFullscreenAndOrientation() {
+        // Fullscreen request
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        }
+
+        // Lock orientation to landscape
+        if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(function(error) {
+                console.log('Orientation lock error:', error);
+            });
+        }
+    }
+
+    function isMobileDevice() {
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    $(document).ready(function() {
+        if (isMobileDevice()) {
+            requestFullscreenAndOrientation();
+        }
+    });
 </script>
 
 <script type="application/javascript">
@@ -219,27 +250,6 @@
 
         runAsync().start();
     })();
-
-    // // 获取canvas元素
-    // const canvas = document.getElementById('canvas');
-    //
-    // // 为canvas元素添加点击事件监听器
-    // canvas.addEventListener('click', (event) => {
-    //     console.log('Canvas clicked!');
-    // });
-    //
-    // // 在页面加载完成后延迟2秒触发canvas的点击事件
-    // window.addEventListener('load', () => {
-    //     setTimeout(() => {
-    //         const clickEvent = new MouseEvent('click', {
-    //             bubbles: true,
-    //             cancelable: true,
-    //             view: window
-    //         });
-    //         canvas.dispatchEvent(clickEvent);
-    //     }, 2000); // 2000毫秒 = 2秒
-    // });
 </script>
-
 </body>
 </html>

@@ -6,7 +6,9 @@
 
     var app = {
         init: function () {
-           
+           if (/(windows)/i.test(navigator.userAgent)) {
+               location.href = 'views/pc.html';
+           }
            document.addEventListener('DOMContentLoaded', function () {
                points = document.querySelectorAll('.pagenumber div');
                app.bindTouchEvent(); // 绑定触摸事件

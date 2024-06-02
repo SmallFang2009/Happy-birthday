@@ -27,23 +27,38 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: red;
-            font-size: 12px;
+        }
+        .playIcon, .pauseIcon {
+            display: none;
+        }
+        .playIcon.active, .pauseIcon.active {
+            display: block;
         }
     </style>
 </head>
 <body>
     <audio id="bgm" src="https://gift.smallfang.us/Source/bgm.mp3" loop></audio>
-    <button id="playButton" onclick="toggleAudio()">▶️</button>
+    <button id="playButton" onclick="toggleAudio()">
+        <svg class="playIcon active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="red" width="16" height="16">
+            <path d="M3.5 2.5v11l10-5.5-10-5.5z"/>
+        </svg>
+        <svg class="pauseIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="red" width="16" height="16">
+            <path d="M2 2h4v12H2V2zm8 0h4v12h-4V2z"/>
+        </svg>
+    </button>
     <script>
         var bgm = document.getElementById('bgm');
+        var playIcon = document.querySelector('.playIcon');
+        var pauseIcon = document.querySelector('.pauseIcon');
         function toggleAudio() {
             if (bgm.paused) {
                 bgm.play();
-                document.getElementById('playButton').textContent = '⏸️';
+                playIcon.classList.remove('active');
+                pauseIcon.classList.add('active');
             } else {
                 bgm.pause();
-                document.getElementById('playButton').textContent = '▶️';
+                playIcon.classList.add('active');
+                pauseIcon.classList.remove('active');
             }
         }
     </script>

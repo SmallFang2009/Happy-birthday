@@ -12,10 +12,25 @@
     <meta property="og:url" content="https://gift.smallfang.us">
     <link rel="stylesheet" href="css/app.css">
     <script src="js/app.js"></script>
+    <style>
+        #playButton {
+            padding: 5px 10px;
+            font-size: 12px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
 </head>
 <body>
     <audio id="bgm" src="https://gift.smallfang.us/Source/bgm.mp3" loop></audio>
-    <button onclick="toggleAudio()">播放/暂停音乐</button>
+    <button id="playButton" onclick="toggleAudio()">播放/暂停音乐</button>
     <script>
         var bgm = document.getElementById('bgm');
         function toggleAudio() {
